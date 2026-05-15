@@ -303,6 +303,8 @@ end type  coupler_exchange_2d_type
     is_coupling = .true.
   end if
 #else
+  ! Adding this helps compilation if MCT is not set
+  is_coupling = .false.
   write(log_scratch_space, '(A)' ) &
                "is_coupling_time: to use OASIS cpp directive MCT must be set"
   call log_event( log_scratch_space, LOG_LEVEL_ERROR )
